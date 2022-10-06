@@ -1,0 +1,101 @@
+Listas
+
+    lista1 = ["Multimídia", 100, True]
+    lista2 = [42, "Python", 3.14159, lista1]
+    lista2.append(1.88) // Ultima posição add 1.88
+    lista2.insert(2,False) // Add false na posição 2
+    print("Elemento na posição 2 e 3:", lista2[2:4]) // 2 excluso, 4 incluso
+    print("Último elemento:", lista2[-1]) // Pega o último elemento.
+    print("Penúltimo elemento:", lista2[-2]) // Pega o penúltimo elemento.
+    lista2.reverse()
+    lista3 = [8, 4, 3, 10, -20]
+    lista3.sort()
+    lista3.sort(reverse=True)
+
+
+numpy
+
+    import numpy as np
+
+    v = [2, 3, 5, 7, 11]
+    vetor = np.array(v) // Cria um vetor com os valores passados
+    print(vetor.shape) // Mostra a quantidade de elementos do vetor
+    print(vetor[0]) // Mostra o primeiro elemento do vetor
+    print(vetor.dtype) // Mostra o tipo de dado do vetor
+
+    m = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    matriz = np.array(m) // Cria uma matriz com os valores passados
+    print(matriz.shape) // Mostra a quantidade de elementos da matriz
+    print(matriz[0, 0]) // Mostra o primeiro elemento da matriz
+    print(matriz.dtype) // Mostra o tipo de dado da matriz
+
+    Array tamanho 2x4 preenchido com 1:
+    print(np.ones((2, 4)))
+
+    Array tamanho 2x4x3 preenchido com 0:
+    print(np.zeros((3, 2, 4))) # Ordem invertida: [página, linha, coluna].
+
+    Array 3x4 com valores aleatórios em [0, 10):
+    print(np.random.randint(10, size=(3, 4)))
+
+    Array com valores em [0, 1) e passo 0.1:
+    print(np.arange(0, 1, 0.1))
+
+    matriz_2x3 = np.array([[0, 1, 2], [3, 4, 5]])
+
+    Transposta:
+    print(matriz_2x3.T)
+
+    matriz_2x2 = np.array([[6, 7], [8, 9]])
+
+    matriz_3x3 = np.array([[6, 7, 8], [9, 10, 11], [12, 13, 14]])
+
+    Matriz 2x3 e Matriz 3x3 - Concatenação no eixo das linhas (eixo 0)
+    print(np.concatenate([matriz_2x3, matriz_3x3], axis=0))
+
+    Matriz 2x3 e Matriz 2x2 - Concatenação no eixo das colunas (eixo 1)
+    print(np.concatenate([matriz_2x3, matriz_2x2], axis=1))
+
+    Multiplicação com escalar:
+    print(np.ones((2, 3)) * 2)
+
+    Soma com escalar:
+    print(np.zeros(6) + 3)
+
+    Soma ponto-a-ponto:
+    # Equivalente a [[1, 1], [1, 1]] + [[10, 10], [10, 10]]:
+    print(np.ones((2, 2)) + 10 * np.ones((2, 2)))
+
+    Multiplicação ponto-a-ponto:
+    # Equivalente a [2, 2, 2, 2] * [5, 5, 5, 5]:
+    print((2 * np.ones(4)) * (5 * np.ones(4)))
+
+    Multiplicação matricial:
+    print(
+        np.matmul(
+            np.array([[1, 2],
+                    [3, 4]]),
+            np.array([[5, 6],
+                    [7, 8]])))
+
+    Ponto a ponto Escalar:
+    #Equivalente a 1 * (-1) + 2 * 0 + 3 * 1:
+    print(np.dot(np.array([1, 2, 3]), np.array([-1, 0, 1])))
+
+Imagens Matriciais
+
+    Importar bibliotecas:
+
+    from PIL import Image
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+    Ler/gravar/converter imagens:
+
+    img = Image.open('imagem.extensao') //Abir imagem
+    plt.imshow(img) //Plot imagem
+    img_np = np.array(img) //Transformar em Array
+    img_pil = Image.fromarray(img_np) //Transofrmar em iamgem
+    img.save('imagem.extensao') //Salvar imagem
+    img_np2 = img_np[:,:,:3] #tirar o canal alfa
+
