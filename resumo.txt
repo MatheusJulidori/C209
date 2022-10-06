@@ -97,5 +97,13 @@ Imagens Matriciais
     img_np = np.array(img) //Transformar em Array
     img_pil = Image.fromarray(img_np) //Transofrmar em iamgem
     img.save('imagem.extensao') //Salvar imagem
+
+    
     img_np2 = img_np[:,:,:3] #tirar o canal alfa
+    ex = np.zeros(shape=(8, 8 * 3, 3), dtype=np.uint8)
+    ex[:, :8]   = (255, 0, 0) # pintar todas as linhas das colunas 0:8 de vermelho
+    ex[:, 8:16] = (0, 255, 0) # todas as linhas, colunas 8:16 de verde
+    ex[:, 16:]  = (0, 0, 255) # todas as linhas, colunas 16:24 de azul
+    ex[0, 0] = (0, 0, 0) # linha 0, coluna 0, colocar preto]
+    ex[0, 8] = (255,255,255) # linha 0, coluna 8,colocar branco)
 
